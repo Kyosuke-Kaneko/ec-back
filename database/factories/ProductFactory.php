@@ -24,7 +24,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'price' => $this->faker->randomNumber(),
+            'price' => $this->faker->numberBetween(1,5500),
             'header' => $this->faker->sentence(),
             'description' => $this->faker->realText(60),
             'url' => 'http://127.0.0.1:8000/storage/images/sandal.jpg',

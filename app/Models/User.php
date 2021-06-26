@@ -25,7 +25,6 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -35,8 +34,6 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
     ];
-
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -55,5 +52,9 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function histories () {
+        return $this->hasMany(PurchaseHistory::class,'usrer_id');
     }
 }

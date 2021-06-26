@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Purchase_history as History;
-use App\Models\purchase_detail as Detail;
+use App\Models\PurchaseHistory as History;
+use App\Models\PurchaseDetail as Detail;
 use App\Models\User;
 use App\Models\Product;
 
-class Purchase_historyController extends Controller
+class PurchaseHistoryController extends Controller
 {
     public function index() {
         $items = History::all();
         foreach ($items as $item) {
-            $item->amount = Detail::find($item->history_id)["amount"];
+            $item->details;
+            $item->user;
+            // $item->test = History::find('35a5821e-3cce-41f1-b320-a133dd0d343f')->details;
+            // $item->users = History::with('user')->get();
+            // $item->product = Detail::with('product')->get();
+            // $item->details = Detail::with('PurchaseHistory')->get();
+            // $item->hasHistory = History::has('PurchaseHistory')->get();
         }
+
+
         // $items = History::all();
         // foreach ($items as $item) {
         //     $details = Detail::where('history_id', $item->history_id)->get();

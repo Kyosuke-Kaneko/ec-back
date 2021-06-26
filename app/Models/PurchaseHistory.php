@@ -4,8 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PurchaseDetail;
+use App\Models\User;
+use App\Models\Product;
 
-class Purchase_history extends Model
+class PurchaseHistory extends Model
 {
     protected $primaryKey = 'uuid';
     public $incrementing = false;
@@ -20,10 +23,13 @@ class Purchase_history extends Model
         'id'
     ];
     public function details(){
-        return $this->hasMany(Purchase_detail::class);
+        return $this->hasMany(PurchaseDetail::class,'purchase_history_uuid','uuid');
     }
-    public function users(){
-        return $this->belongsTo(User::class);
+    public function user(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
+    public function products(){
+        return $this->belongsToMany(Product::class,'purchase_detail','uuid','product_id');
     }
     use HasFactory;
 }

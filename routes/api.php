@@ -4,8 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Purchase_historyController;
-use App\Http\Controllers\Purchase_detailController;
+use App\Http\Controllers\PurchaseHistoryController;
+use App\Http\Controllers\PurchaseDetailController;
 
 Route::group([
     'middleware' => ['auth:api'],
@@ -22,7 +22,7 @@ Route::group(['prefix' => 'product'],function() {
     Route::get('',[ProductController::class, 'index']);//管理者ではProductを操作するかと思い、groupを用いてます。
 });
 
-Route::get('history',[Purchase_historyController::class, 'index']);
-Route::post('history',[Purchase_historyController::class, 'store']);
-Route::get('detail',[Purchase_detailController::class, 'index']);
-Route::post('detail',[Purchase_detailController::class, 'store']);
+Route::get('history',[PurchaseHistoryController::class, 'index']);
+Route::post('history',[PurchaseHistoryController::class, 'store']);
+Route::get('detail',[PurchaseDetailController::class, 'index']);
+Route::post('detail',[PurchaseDetailController::class, 'store']);

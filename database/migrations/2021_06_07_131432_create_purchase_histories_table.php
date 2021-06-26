@@ -16,13 +16,10 @@ class CreatePurchaseHistoriesTable extends Migration
         Schema::create('purchase_histories', function (Blueprint $table) {
             $table->unsignedBigInteger('id');
             $table->char('uuid',36)->primary();
-            // $table->bigInteger('user_id')->unsigned();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->integer('total_price');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
-
-            // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
