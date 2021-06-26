@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Purchase_detail extends Model
 {
+    // protected $primaryKey = 'purchase_history_uuid';
+    // public $incrementing = false;
     protected $fillable = [
-        'history_id', 'product_id','amount','created_at','updated_at'
+        'purchase_history_uuid', 'product_id','amount','created_at','updated_at'
     ];
  
     protected $hidden = [
@@ -17,5 +19,12 @@ class Purchase_detail extends Model
     protected $guarded = [
         'id'
     ];
+    
     use HasFactory;
+    public function histories() {
+        return $this->belongsTo(Purchase_history::class);
+    }
+    // public function products() {
+    //     return $this->belongsTo(Product::class);
+    // }
 }

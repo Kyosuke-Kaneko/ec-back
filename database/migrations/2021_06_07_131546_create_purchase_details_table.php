@@ -15,13 +15,14 @@ class CreatePurchaseDetailsTable extends Migration
     {
         Schema::create('purchase_details', function (Blueprint $table) {
             $table->id();
-            $table->char('history_id');
-            $table->bigInteger('product_id')->unsigned();
+            $table->char('purchase_history_uuid',36);
+            // $table->bigInteger('product_id')->unsigned();
+            $table->foreignId('product_id')->nullable()->constrained('products');
             $table->integer('amount');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
             
-            // $table->foreign('history_id')->references('history_id')->on('purchase_histories')->onDelete('cascade');
+            $table->foreign('purchase_history_uuid')->references('uuid')->on('purchase_histories')->onDelete('cascade');
             // $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }

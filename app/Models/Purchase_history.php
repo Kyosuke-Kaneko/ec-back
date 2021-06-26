@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Purchase_history extends Model
 {
+    protected $primaryKey = 'uuid';
+    public $incrementing = false;
     protected $fillable = [
-        'history_id', 'user_id', 'total_price','created_at','updated_at'
+        'uuid', 'user_id', 'total_price','created_at','updated_at'
     ];
  
     protected $hidden = [
@@ -17,5 +19,11 @@ class Purchase_history extends Model
     protected $guarded = [
         'id'
     ];
+    public function details(){
+        return $this->hasMany(Purchase_detail::class);
+    }
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
     use HasFactory;
 }

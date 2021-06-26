@@ -11,4 +11,7 @@ class Product extends Model
     protected $fillable = [
         'name','price','header','description','url','created_at','updated_at'
     ];
+    // public function details(){
+    //     return $this->hasMany(Purchase_detail::class);
+    // }
 }

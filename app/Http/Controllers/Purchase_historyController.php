@@ -13,13 +13,16 @@ class Purchase_historyController extends Controller
     public function index() {
         $items = History::all();
         foreach ($items as $item) {
-            $user = User::where('id', $item->user_id)->first();
-            $details = Detail::where('history_id', $item->history_id)->get();
-            foreach($details as $detail) {
-                $product = Product::where('id',$detail->product_id)->get();
-                $item->amount = $detail->amount;
-            }
+            $item->amount = Detail::find($item->history_id)["amount"];
         }
+        // $items = History::all();
+        // foreach ($items as $item) {
+        //     $details = Detail::where('history_id', $item->history_id)->get();
+        //     foreach($details as $detail) {
+        //         $product = Product::where('id',$detail->product_id)->get();
+        //         $item->amount = $detail->amount;
+        //     }
+        // }
         return response()->json([
             'data' => $items,
             'mes' =>'ok'
@@ -33,3 +36,4 @@ class Purchase_historyController extends Controller
         ], 201);
     }
 }
+
