@@ -29,7 +29,7 @@ class PurchaseHistory extends Model
         return $this->hasOne(User::class,'id','user_id');
     }
     public function products(){
-        return $this->belongsToMany(Product::class,'purchase_detail','uuid','product_id');
+        return $this->belongsToMany(Product::class,'purchase_details','purchase_history_uuid','product_id')->withPivot('amount');
     }
     use HasFactory;
 }
