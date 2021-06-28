@@ -6,11 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-//以下の1文を追加
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
-//以下の1文を修正
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
@@ -52,9 +49,5 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    public function histories () {
-        return $this->hasMany(PurchaseHistory::class,'usrer_id');
     }
 }

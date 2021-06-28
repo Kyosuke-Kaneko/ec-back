@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
             'header' => '毎日履きたくなる、スニーカー。',
             'description' => '朝の支度が、格段にラクになる一足。シンプルで飽きのこないチームコートは、クリーンでモダンなデザインが魅力。合わせたいのは、デニムやバギースウェット。スタイリッシュなレザーアッパーとフレッシュなカラーが、どんなコーディネートも引き締めてくれる。もちろん、履き心地の良さも言うことなし。
             ',
-            'url' => 'http://127.0.0.1:8000/storage/images/fox.jpg'
+            'url' => 'http://127.0.0.1:8000/storage/images/detergent.jpg'
         ];
         DB::table('products')->insert($param);
         $param = [
@@ -29,7 +29,7 @@ class ProductsTableSeeder extends Seeder
             'header' => '毎日履きたくなる、スニーカー。',
             'description' => '朝の支度が、格段にラクになる一足。シンプルで飽きのこないチームコートは、クリーンでモダンなデザインが魅力。合わせたいのは、デニムやバギースウェット。スタイリッシュなレザーアッパーとフレッシュなカラーが、どんなコーディネートも引き締めてくれる。もちろん、履き心地の良さも言うことなし。
             ',
-            'url' => 'http://127.0.0.1:8000/storage/images/space.jpg'
+            'url' => 'http://127.0.0.1:8000/storage/images/brush.jpg'
         ];
         DB::table('products')->insert($param);
     }

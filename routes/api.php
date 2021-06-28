@@ -19,10 +19,9 @@ Route::group([
 });
 
 Route::group(['prefix' => 'product'],function() {
-    Route::get('',[ProductController::class, 'index']);//管理者ではProductを操作するかと思い、groupを用いてます。
+    Route::get('',[ProductController::class, 'index']);
 });
 
 Route::get('history',[PurchaseHistoryController::class, 'index']);
 Route::post('history',[PurchaseHistoryController::class, 'store']);
-Route::get('detail',[PurchaseDetailController::class, 'index']);
 Route::post('detail',[PurchaseDetailController::class, 'store']);

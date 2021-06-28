@@ -15,4 +15,4 @@ class ProductController extends Controller
             'data' => $items,
         ], 200);
     }
- }
+}

@@ -18,10 +18,4 @@ class PurchaseDetail extends Model
         'id'
     ];
     use HasFactory;
-    public function history() {
-        return $this->belongsTo(PurchaseHistory::class,'uuid','purchase_history_uuid');
-    }
-    public function products() {
-        return $this->hasMany(Product::class,'id','product_id');
-    }
 }
