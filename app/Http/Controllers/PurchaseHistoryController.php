@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PurchaseHistory as History;
-use App\Models\PurchaseDetail as Detail;
-use App\Models\User;
-use App\Models\Product;
 
 class PurchaseHistoryController extends Controller
 {

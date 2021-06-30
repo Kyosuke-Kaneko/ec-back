@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PurchaseDetail as Detail;
-use App\Models\PurchaseHistory as History;
-use App\Models\User;
-use App\Models\Product;
 
 class PurchaseDetailController extends Controller
 {
@@ -18,7 +15,7 @@ class PurchaseDetailController extends Controller
                 "product_id"=>$detailDatum['product_id'],
                 "amount" => $detailDatum['amount']
             ];
-            $item = Detail::create($item);
+            Detail::create($item);
         }
         return response()->json([
             'data' => $detailData,

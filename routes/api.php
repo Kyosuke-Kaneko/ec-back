@@ -18,9 +18,7 @@ Route::group([
     Route::get('user', [AuthController::class, 'me']);
 });
 
-Route::group(['prefix' => 'product'],function() {
-    Route::get('',[ProductController::class, 'index']);
-});
+Route::get('product',[ProductController::class, 'index']);
 
 Route::get('history',[PurchaseHistoryController::class, 'index']);
 Route::post('history',[PurchaseHistoryController::class, 'store']);

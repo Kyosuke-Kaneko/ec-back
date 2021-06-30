@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\PurchaseDetail;
-use App\Models\User;
-use App\Models\Product;
 
 class PurchaseHistory extends Model
 {
+    use HasFactory;
     protected $primaryKey = 'uuid';
     public $incrementing = false;
     protected $fillable = [
@@ -24,5 +22,4 @@ class PurchaseHistory extends Model
     public function products(){
         return $this->belongsToMany(Product::class,'purchase_details','purchase_history_uuid','product_id')->withPivot('amount');
     }
-    use HasFactory;
 }

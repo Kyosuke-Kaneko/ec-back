@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ProductsTableSeeder::class);
-        \App\Models\Product::factory(10)->create();
+        for ($i=0; $i <= 10; $i++) {
+            $this->call(ProductsTableSeeder::class);
+        }
+        // \App\Models\Product::factory(10)->create();
     }
 }
